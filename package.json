@@ -1,5 +1,5 @@
 {
-  "name": "basedatosmongodb-websockets",
+  "name": "mongodbywebsockets",
   "version": "0.1.0",
   "description": "Un chat como telegram, pero mucho mejor",
   "main": "server.js",
@@ -14,6 +14,7 @@
   "author": "Cinlo <cinlos3382@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.20.1",
     "express": "^4.18.2"
   }
 }
