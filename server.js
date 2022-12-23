@@ -15,10 +15,10 @@ router.get('/message', function(req, res) {
     res.send('Lista de mensajes');
 });
 
-router.delete('/message', function(req, res) {
+router.post('/message', function(req, res) {
     console.log(req.query);
     console.log(req.body);
-    res.send('mensaje '+ req.body.text + ' añadido correctamente');
+    res.status(201).send([{error: '', body: 'creado correctamente'}]);
 });
 
 // app.use('/', function(req, res) {
