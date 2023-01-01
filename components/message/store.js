@@ -13,16 +13,17 @@ db.connect(uri, {
     .then(() => console.log('[db] Conectada con éxito'))
     .catch(e => console.error('[db]', e));
    
-
 function addMessage(message) {
-    //list.push(message);
     const myMessage = new Model(message);
     myMessage.save();
 }
 
-async function getMessenges() {
-  //  return list;
-  const message = await Model.find();
+async function getMessenges(filterUser) {
+    let filter = {};
+    if (filterUser !== null) {
+        filter = { user: filterUser }
+    }
+  const message = await Model.find(filter);
   return message;
 }
 
