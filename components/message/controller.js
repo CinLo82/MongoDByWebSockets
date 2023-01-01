@@ -18,9 +18,9 @@ return new Promise((resolve, reject) => {
     })
 }
 
-function getMessenges() {
+function getMessenges(filterUser) {
     return new Promise((resolve, reject) => {
-        resolve(store.list());
+        resolve(store.list(filterUser));
     })
 }
 
