@@ -1,8 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const db = require('./db');
+
 //const router = require('./components/message/network');
 const router = require('./network/routes');
+
+db('mongodb+srv://cin:cin0002@cluster0.xrouvau.mongodb.net/?retryWrites=true&w=majority');
 
 var app = express();
 app.use(bodyParser.json());
