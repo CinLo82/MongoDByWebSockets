@@ -21,7 +21,11 @@ return new Promise((resolve, reject) => {
 function getMessenges(filterUser) {
     return new Promise((resolve, reject) => {
         resolve(store.list(filterUser));
+<<<<<<< HEAD
     });
+=======
+    })
+>>>>>>> a491d949ed398a83fe7ee08a3a452ee45d692164
 }
 
 function updateMessage(id, message) {
