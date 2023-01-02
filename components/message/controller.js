@@ -1,13 +1,14 @@
 const store = require('./store');
 
-function addMessage(user, message) {
+function addMessage(chat, user, message) {
 return new Promise((resolve, reject) => {
-    if(!user | !message) {
+    if(!chat || !user || !message) {
         console.error('[messageController] no hay usuario o mensaje');
         reject('Los datos son incorrectos');
         return false;
     }
      const fullMessage = {
+        chat: chat,
         user: user,
         message: message,
         date: new Date(),
@@ -18,14 +19,16 @@ return new Promise((resolve, reject) => {
     })
 }
 
-function getMessenges(filterUser) {
+function getMessenges(filterChat) {
     return new Promise((resolve, reject) => {
-        resolve(store.list(filterUser));
+        resolve(store.list(filterChat));
     });
 }
 
 function updateMessage(id, message) {
     return new Promise(async (resolve, reject) => {
+        console.log(id);
+        console.log(message);
         if (!id || !message) {
             reject('Invalid data');
             return false;
@@ -44,7 +47,8 @@ function deleteMessage(id) {
      }
        store.remove(id)
            .then(()=> {
-               resolve()})
+               resolve()
+            })
            .catch(e => {
                reject(e);
              })
